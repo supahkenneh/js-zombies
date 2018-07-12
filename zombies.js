@@ -1,3 +1,4 @@
+'use strict'
 /**
  * Class => Item(name)
  * -----------------------------
@@ -102,13 +103,6 @@ class Food extends Item {
     return this._energy;
   }
 
-  set energy(energy) {
-    if (typeof (energy) === 'number') {
-      this._energy = energy;
-    } else {
-      return TypeError('Sorry, this won\'t be good for you');
-    }
-  }
 }
 
 
@@ -135,80 +129,88 @@ class Food extends Item {
  * @property {method} getMaxHealth         Returns private variable `maxHealth`.
  */
 
- class Player {
-   constructor(name, health, strength, speed){
-     this._name = name;
-     this._health = health;
-     this._strength = strength;
-     this._speed = speed;
-     this._pack;
-     this._maxHealth;
-   }
-   
-   get name(){
-     return this._name;
-   }
+class Player {
+  constructor(name, health, strength, speed) {
+    this._name = name;
+    this._health = health;
+    this._strength = strength;
+    this._speed = speed;
+    this._pack = [];
+    this._maxHealth = health;
+  }
 
-   get health(){
-     return this._health;
-   }
+  get name() {
+    return this._name;
+  }
 
-   get strength(){
-     return this._strength;
-   }
+  get health() {
+    return this._health;
+  }
 
-   get speed(){
-     return this._speed;
-   }
+  get strength() {
+    return this._strength;
+  }
 
-   get isAlive(){
-     return true;
-   }
+  get speed() {
+    return this._speed;
+  }
 
-   get equipped(){
-     return false;
-   }
+  get isAlive() {
+    return true;
+  }
 
-   get getPack(){
-     return this._pack;
-   }
+  get equipped() {
+    return false;
+  }
 
-   get getMaxHealth(){
-     return this._maxHealth;
-   }
+  get getPack() {
+    return this._pack;
+  }
 
-   set name(name){
-     if (typeof(name) === 'string'){
-       this._name = name;
-     } else {
-       return TypeError('Make a better name than that');
-     }
-   }
+  get getMaxHealth() {
+    return this._maxHealth;
+  }
 
-   set health(health){
-     if (typeof(health) === 'number'){
-       this._health = health;
-     } else {
-       return TypeError('Dead');
-     }
-   }
+  getPack(){
+    return this._pack;
+  }
 
-   set strength(strength){
-     if (typeof(strength) === 'number'){
-       this._strength = strength;
-     } else {
-       return TypeError('Weak');
-     }
-   }
+  getMaxHealth(){
+    return this._maxHealth;
+  }
 
-   set speed(speed){
-     if (typeof(speed) === 'number'){
-       this._speed = speed;
-     } else {
-       return TypeError('Slow');
-     }
-   }
- }
+  takeItem(item){
+    if (this._pack.length < 3){
+      this._pack.push(item);
+      return true;
+    } else {
+      console.log('Max Bag Capacity');
+      return false;
+    }
+  }
+
+  discardItem(item){
+    if (this._pack.indexOf(item) === -1){
+      console.log('Nothing was discarded, item not in inventory');
+      return false
+    } else {
+      this._pack.splice(this._pack.indexOf(item), 1);
+      console.log(new Player + new Item + ' was discarded.');
+      return true;
+    }
+  }
+
+  checkPack(){
+    let newPlayer = new Player;
+    console.log(newPlayer.getPack);
+  }
+
+  equip(itemToEquip){
+    let equipWeapon = new Weapon;
+    if(equipWeapon instanceof Weapon){
+    }
+  }
+}
 
 
 /**
@@ -222,6 +224,7 @@ class Food extends Item {
  *
  * @name checkPack
  */
+
 
 
 /**
