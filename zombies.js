@@ -334,15 +334,15 @@ class Player {
  * @property {boolean} isAlive      Default value should be `true`.
  */
 
- class Zombie {
-   constructor (health, strength, speed){
-     this._maxHealth = health;
-     this.health = health;
-     this.strength = strength;
-     this.speed = speed;
-     this.isAlive = true;
-   }
- }
+class Zombie {
+  constructor(health, strength, speed) {
+    this._maxHealth = health;
+    this.health = health;
+    this.strength = strength;
+    this.speed = speed;
+    this.isAlive = true;
+  }
+}
 
 
 /**
@@ -360,11 +360,11 @@ class Player {
  * @param {number} speed            The zombie's speed.
  */
 
- class FastZombie extends Zombie{
-   super (health, strength, speed){
+class FastZombie extends Zombie {
+  super(health, strength, speed) {
 
-   }
- }
+  }
+}
 
 /**
  * FastZombie Extends Zombie Class
@@ -388,11 +388,11 @@ class Player {
  * @param {number} speed            The zombie's speed.
  */
 
- class StrongZombie extends Zombie {
-   super (health, strength, speed){
-     
-   }
- }
+class StrongZombie extends Zombie {
+  super(health, strength, speed) {
+
+  }
+}
 
 /**
  * StrongZombie Extends Zombie Class
@@ -416,11 +416,11 @@ class Player {
  * @param {number} speed            The zombie's speed.
  */
 
- class RangedZombie extends Zombie {
-   super (health, strength, speed){
+class RangedZombie extends Zombie {
+  super(health, strength, speed) {
 
-   }
- }
+  }
+}
 
 
 /**
@@ -445,11 +445,11 @@ class Player {
  * @param {number} speed            The zombie's speed.
  */
 
- class ExplodingZombie extends Zombie {
-   super (health, strength, speed){
-     
-   }
- }
+class ExplodingZombie extends Zombie {
+  super(health, strength, speed) {
+
+  }
+}
 
 
 /**
