@@ -16,7 +16,7 @@ class Item {
   get name() {
     return this._name;
   }
-  
+
   set name(name) {
     if (typeof (name) === 'string') {
       this._name = name;
@@ -134,6 +134,81 @@ class Food extends Item {
  * @property {method} getPack              Returns private variable `pack`.
  * @property {method} getMaxHealth         Returns private variable `maxHealth`.
  */
+
+ class Player {
+   constructor(name, health, strength, speed){
+     this._name = name;
+     this._health = health;
+     this._strength = strength;
+     this._speed = speed;
+     this._pack;
+     this._maxHealth;
+   }
+   
+   get name(){
+     return this._name;
+   }
+
+   get health(){
+     return this._health;
+   }
+
+   get strength(){
+     return this._strength;
+   }
+
+   get speed(){
+     return this._speed;
+   }
+
+   get isAlive(){
+     return true;
+   }
+
+   get equipped(){
+     return false;
+   }
+
+   get getPack(){
+     return this._pack;
+   }
+
+   get getMaxHealth(){
+     return this._maxHealth;
+   }
+
+   set name(name){
+     if (typeof(name) === 'string'){
+       this._name = name;
+     } else {
+       return TypeError('Make a better name than that');
+     }
+   }
+
+   set health(health){
+     if (typeof(health) === 'number'){
+       this._health = health;
+     } else {
+       return TypeError('Dead');
+     }
+   }
+
+   set strength(strength){
+     if (typeof(strength) === 'number'){
+       this._strength = strength;
+     } else {
+       return TypeError('Weak');
+     }
+   }
+
+   set speed(speed){
+     if (typeof(speed) === 'number'){
+       this._speed = speed;
+     } else {
+       return TypeError('Slow');
+     }
+   }
+ }
 
 
 /**
