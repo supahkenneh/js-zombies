@@ -263,7 +263,7 @@ class Player {
       if (this.health < this.getMaxHealth()) {
         this.getPack().splice(itemToEat, 1);
         this.health += itemToEat.energy;
-        if (this.health > this.getMaxHealth()) {
+        if ((this.health + itemToEat.energy > this.getMaxHealth())) {
           this.health = this.getMaxHealth();
         }
       }
@@ -309,7 +309,7 @@ class Player {
    */
 
   equippedWith() {
-    if (typeof (this.equipped) !== 'boolean') {
+    if (this.equipped) {
       console.log(this.name + ' is currently equipped with ' + this.equipped.name);
       return this.equipped.name;
     } else {
@@ -362,7 +362,7 @@ class Zombie {
 
 class FastZombie extends Zombie {
   constructor(health, strength, speed) {
-    super (health, strength, speed);
+    super(health, strength, speed);
   }
 }
 
@@ -447,7 +447,7 @@ class RangedZombie extends Zombie {
 
 class ExplodingZombie extends Zombie {
   constructor(health, strength, speed) {
-    super (health, strength, speed);
+    super(health, strength, speed);
   }
 }
 
