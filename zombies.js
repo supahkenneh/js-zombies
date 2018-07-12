@@ -42,10 +42,27 @@ class Item {
  */
 
 
+
 /**
  * Weapon Extends Item Class
  * -----------------------------
  */
+class Weapon extends Item {
+  constructor(name, damage) {
+    super(name);
+    this._damage = damage;
+  }
+  get damage() {
+    return this._damage;
+  }
+  set damage(damage) {
+    if (typeof (damage) === 'number') {
+      this._damage = damage;
+    } else {
+      return new TypeError('Sorry, this won\'t do any damage');
+    }
+  }
+}
 
 
 
