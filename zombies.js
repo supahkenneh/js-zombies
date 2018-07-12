@@ -8,6 +8,22 @@
  * @property {string} name
  */
 
+class Item {
+  constructor(name) {
+    this._name = name;
+  }
+  get name() {
+    return this._name;
+  }
+  set name(name) {
+    if (typeof (name) === 'string') {
+      this._name = name;
+    } else {
+      return new TypeError('Not a valid item');
+    }
+  }
+}
+
 
 /**
  * Class => Weapon(name, damage)
